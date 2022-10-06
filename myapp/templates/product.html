@@ -1,0 +1,63 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   </head>
+   <!-- body -->
+   <body>
+      <!-- products -->
+      <div  class="products">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Our Products</h2>
+                  </div>
+               </div>
+            </div>
+            <!-- three_box -->
+      <div class="three_box">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'products_by_category' pc='Computer' %}">
+                     <i><img src="{% static 'images/thr.png' %}" alt="#"/></i>
+                     <h3>Computer</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'products_by_category' pc='Laptop' %}">
+                     <i><img src="{% static 'images/thr1.png' %}" alt="#"/></i>
+                     <h3>Laptop</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                  </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'products_by_category' pc='Accessories' %}">
+                     <i><img src="{% static 'images/thr2.png' %}" alt="#"/></i>
+                     <h3>Tablet</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                  </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- three_box -->
+      
+         </div>
+      </div>
+      <!-- end products -->
+   </body>
+</html>
+
+{% endblock %}

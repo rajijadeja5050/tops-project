@@ -1,0 +1,72 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   </head>
+   <!-- body -->
+   <body>
+      <!-- products -->
+      <div  class="products">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Product Detail</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="our_products">
+                     <div class="row">
+                     
+                        <div class="col-md-6 margin_bottom1">
+                           <div class="product_box">
+                              <a href="">
+                                 <figure><img src="{{product.product_image.url}}" alt="#" style="width: 300px; height: 300px;" /></figure>
+                              </a>
+                              <br><br>
+                              {% if request.session.email %}
+
+                                 {% if cart_flag == True %}
+                                  <a href="{% url 'remove_from_cart' pk=product.pk %}"><input type="button" value="Remove From Cart" class="btn btn-danger">
+                                 {% else %}
+                                 <a href="{% url 'add_to_cart' pk=product.pk %}"><input type="button" value="Add To Cart" class="btn btn-success">
+                                 {% endif %}
+                                 
+                                 {% if wishlist_flag == True %}
+                                    <a href="{% url 'remove_from_wishlist' pk=product.pk %}"><input type="button" value="Remove From Wishlist" class="btn btn-danger">
+                                 {% else %}
+                                 <a href="{% url 'add_to_wishlist' pk=product.pk %}"><input type="button" value="Add To Wishlist" class="btn btn-success">
+                                 {% endif %}
+                              {% else %}
+                              <a href="{% url 'login' %}"><input type="button" value="Login" class="btn btn-info">
+                              {% endif%}
+                           </div>
+                           </div>
+                        <div class="col-md-6 margin_bottom1">
+                           <div class="product_box">
+                              <a href="">
+                                Category : <h3>{{product.product_category}}</h3>
+                               Name : <h3>{{product.product_name}}</h3>
+                               Price :<h3>{{product.product_price}}</h3>
+                               Desciription :<h3>{{product.product_desc}}</h3>
+                               Discount :<h3>{{product.discount}}%</h3>
+                              </a>
+                           </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end products -->
+   </body>
+</html>
+
+{% endblock %}
